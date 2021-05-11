@@ -6,14 +6,13 @@ source /mnt/home/lellolou/myPy/bin/activate
 traitname=$1
 echo $traitname
 
-OUTDIR=/mnt/home/lellolou/siblingGP/$traitname/
-PLINK=/mnt/home/lellolou/programs/plink1.9/plink
+OUTDIR='PARENT OUT DIR'/$traitname/
+PLINK='PATH TO PLINK 1.9 BINARY'
 mkdir -p $OUTDIR
 
 # adjust the phenoDIR / genoDIR
-phenoDIR=/mnt/research/UKBB/hsuGroup/ukb500/phenotypes/bioAssays/phenFiles/
-#genoPATH=/mnt/research/UKBB/hsuGroup/ukb500/genotypes/calls.merged/ukb500.calls.gpsnp
-genoPATH=/mnt/research/UKBB/hsuGroup/ukb500/genotypes/calls.merged/ukb500.calls.gpsnp.biomarker3
+phenoDIR='PHENO FILE DIRECTORY'
+genoPATH='PATH TO BED MATRIX'
 
 cohortDIR=/mnt/research/UKBB/hsuGroup/ukb500/cohorts/
 whitePATH=$cohortDIR"white.report.txt"
