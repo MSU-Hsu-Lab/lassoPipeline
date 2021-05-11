@@ -6,19 +6,20 @@
 #SBATCH --output=%x-%a-%A.SLURMout
 #SBATCH -a 1-5
 
+# note hard paths have been changed.
+
 module load GCC/8.3.0
 module load Python/3.8.3
-source /mnt/home/lellolou/myPy/python3.8/newPy/bin/activate
+source 'PATHTOPYENV'
 k=$SLURM_ARRAY_TASK_ID
 echo $k
 
 traitname=$1
 
-OUTDIR=/mnt/home/lellolou/siblingGP/$traitname/
+OUTDIR='PARENT DIR TO OUTPUT'/$traitname/
 mkdir -p $OUTDIR
 
-#genoPATH=/mnt/research/UKBB/hsuGroup/ukb500/genotypes/calls.merged/ukb500.calls.onlyqc
-genoPATH=/mnt/home/lellolou/hsuGroup/ukb500/genotypes/calls.merged/ukb500.calls.gpsnp.biomarker3
+genoPATH='PATH TO BEDMATRIX'
 
 python3 lasso.pysnp.py --geno-path $genoPATH \
 	--trait $traitname \
