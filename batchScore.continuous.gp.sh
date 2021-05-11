@@ -8,18 +8,16 @@
 
 module load GCC/8.3.0
 module load Python/3.8.3
-source /mnt/home/lellolou/myPy/python3.8/newPy/bin/activate
+source 'PATH TO PY ENV'
 k=$SLURM_ARRAY_TASK_ID
 echo $k
 
 traitname=$1
 
-OUTDIR=/mnt/home/lellolou/siblingGP/$traitname/
-genoPATH=/mnt/research/UKBB/hsuGroup/ukb500/genotypes/calls.merged/ukb500.calls.gpsnp
-#genoPATH=/mnt/home/lellolou/hsuGroup/ukb500/genotypes/calls.merged/ukb500.calls.gpsnp.biomarker3
+OUTDIR='PARENT OUT DIR'/$traitname/
+genoPATH='PATH TO BED MATRIX'
 
-#scratchPATH=/mnt/home/lellolou/scratch/ukb500.calls.gpsnp
-cohortDIR=/mnt/research/UKBB/hsuGroup/ukb500/cohorts/
+cohortDIR='PATH WHERE COHORTS ARE DEFINED'
 
 python3 scoreSets.continuous.py --geno-path $genoPATH \
 	--trait $traitname \
